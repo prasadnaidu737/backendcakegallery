@@ -60,7 +60,7 @@ exports.finduser = function(req,res){
 
    userModel.findOne(req.body,projection).then((user)=>{
     if(user){
-        const token = JWT.sign({email:user.email},"secret123")
+        const token = JWT.sign({email:user.email},"")
         res.set("auth",token)
         res.send({data:user})
     }else{
